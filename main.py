@@ -15,7 +15,8 @@ def clear():
     else:
         _ = system('clear')
 def dealCard():
-    randomcard = card_list[random.randint(0,12)]
+    """Return a Random Card from deck"""
+    randomcard = random.choice(card_list)
     return randomcard
 
 def calculate_score(cards):
@@ -66,10 +67,11 @@ def playBlackJack():
     print(art.logo)
     user_card_list = []
     computer_card_list = []
-    user_card_list.append(dealCard())
-    user_card_list.append(dealCard())
-    computer_card_list.append(dealCard())
-    computer_card_list.append(dealCard())
+
+    for _ in range(2):
+        user_card_list.append(dealCard())
+        computer_card_list.append(dealCard())
+    
 
     user_score = calculate_score(user_card_list)
     computer_score = calculate_score(computer_card_list)
